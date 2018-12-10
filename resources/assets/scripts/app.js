@@ -1,10 +1,7 @@
 import '../../../node_modules/bootstrap';
 import '../../../node_modules/jquery';
 
-window.jQuery = jQuery;
-
-console.log(jQuery);
-
+// window.jQuery = jQuery;
 
 /**
  * Get HTML asynchronously
@@ -33,28 +30,32 @@ var getHTML = function ( url, callback ) {
 
 };
 
+
+
 (function($){
   $(document).ready(function(){
-    $('#menu-main, #menu-sub').find('a').click(function (e) {
-      e.preventDefault();
+    var $body = $('.main-container');
+    $('#menu-main, #menu-sub').find('a').each(function() {
+      $(this).click(function (e) {
+        console.log('clicked');
+        e.preventDefault();
+  
+        var addressValue = $(this).attr("href");
+        console.log(addressValue);
+  
+        history.pushState(null, null, addressValue);
 
-      var addressValue = $(this).attr("href");
-      console.log(addressValue);
-
-      history.pushState(null, null, addressValue);
-      
-      getHTML( addressValue, function (response) {
-      	document.documentElement.innerHTML = response.documentElement.innerHTML;
+        loadPage(addressValue);
+        $('.navbar-toggler').click();
+        
+        
+        // getHTML( addressValue, function (response) {
+        //   document.documentElement.innerHTML = response.documentElement.innerHTML;
+        // });
       });
     });
-    
-  // });
-  
-  /**
-   * When all content is loaded
-   */
-  // $(window).load(function(){
-
+    function loadPage(url) {
+      $body.load(url + " .main-container > *");
+    }
   });
-
 })(jQuery);

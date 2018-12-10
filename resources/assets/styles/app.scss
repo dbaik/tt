@@ -1,0 +1,26 @@
+@import "functions";
+@import "variables";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+@import "fluid-type";
+@import "hamburger";
+@import "nav";
+@import "main";
+
+body {
+	background: $black;
+	color: $white;
+	a {
+		color: $white;
+		&:hover {
+			color: $color_gray_approx;
+		}
+	}
+	&.light {
+		background: $white;
+		color: $black;
+		a {
+			color: $black;
+		}
+	}
+}

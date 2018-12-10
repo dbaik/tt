@@ -1,0 +1,116 @@
+.navbar-toggler {
+  width: 30px;
+  height: auto;
+  box-sizing: content-box;
+  padding: 10px;
+  user-select: none;
+  cursor: pointer;
+	transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.5s, opacity cubic-bezier(0.77, 0, 0.175, 1) 0.5s .3s;
+	z-index: 30;
+
+	&:hover {
+		opacity: 0.6;
+	}
+
+  &.is-hidden {
+    transform: translate(-80px, 0) scale(2.5, 1);
+    transform: translateX(-80px) scale(2.5, 1);
+    opacity: 0;
+    pointer-events: none;
+	}
+	
+	&__bar {
+		width: 100%;
+		height: 4px;
+		float: left;
+		background: $white;
+		transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.5s, background cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+	
+		&:not(:last-child) {
+			margin-bottom: 5px;
+		}
+	}
+
+  &[aria-expanded="true"] {
+    transform: rotate(135deg) translate(2px, 3px);
+    transform: rotate(135deg) translateX(2px) translateY(3px);
+
+    .navbar-toggler__bar {
+			background: $black;
+			@media only screen and (min-width: 768px) {
+				background: $white;
+			}
+    }
+
+    .navbar-toggler__bar--top {
+      transform: translate(0, 8px);
+      transform: translate3d(0, 8px, 0);
+    }
+
+    .navbar-toggler__bar--middle {
+      transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+      transform: scale(0, 1);
+    }
+
+    .navbar-toggler__bar--bottom {
+      transform: translate(0, -10px) rotate(90deg);
+      transform: translate3d(0, -10px, 0) rotate(90deg);
+    }
+
+    &.navbar-toggler--force-light .navbar-toggler__bar {
+      background: $white;
+    }
+  }
+}
+
+.no-js {
+  .navbar-toggler--cross {
+    .navbar-toggler__bar {
+      background: $color_gray_approx;
+    }
+
+    &.navbar-toggler--force-light .navbar-toggler__bar {
+      background: $color_gray_approx;
+    }
+  }
+
+  .navbar-toggler__bar {
+    background: $color_gray_approx;
+  }
+
+  .navbar-toggler--dark .navbar-toggler__bar {
+    background: $color_gray_approx;
+  }
+}
+
+.navbar-toggler--arrow {
+  transform: rotate(135deg) translate(4px, 2px);
+  transform: rotate(135deg) translateX(4px) translateY(2px);
+
+  .navbar-toggler__bar--top {
+    transform: translate(-5px, 0) scale(0.5, 1);
+    transform: translate3d(-5px, 0, 0) scale(0.5, 1);
+  }
+
+  .navbar-toggler__bar--middle {
+    transition: transform cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+    transform: scale(0, 1);
+  }
+
+  .navbar-toggler__bar--bottom {
+    transform: translate(-11px, -12px) rotate(90deg) scale(0.5, 1);
+    transform: translate3d(-11px, -12px, 0) rotate(90deg) scale(0.5, 1);
+  }
+}
+
+.no-touch .navbar-toggler:hover .navbar-toggler__bar {
+  background: $color_gray_approx;
+}
+
+.touch .navbar-toggler:active .navbar-toggler__bar {
+  background: $color_gray_approx;
+}
+
+.navbar-toggler--dark .navbar-toggler__bar {
+  background: $black;
+}

@@ -1,0 +1,24 @@
+{
+  "name": "wordplate",
+  "description": "A modern WordPress stack. Don't repeat yourself.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wordplate/wordplate"
+  },
+  "scripts": {
+    "dev": "gulp watch",
+    "prod": "gulp --production"
+  },
+  "devDependencies": {
+    "gulp": "^3.9",
+    "node-sass": "^3.0.0",
+    "gulp-sass": "^3.0.0",
+    "laravel-elixir": "^5.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^1.9.1",
+    "popper.js": "^1.14.6"
+  }
+}
